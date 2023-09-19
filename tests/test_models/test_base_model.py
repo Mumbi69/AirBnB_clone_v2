@@ -18,10 +18,11 @@ class test_basemodel(unittest.TestCase):
         self.value = BaseModel
 
     def setUp(self):
-        """Test for setUp """
+        """Representation of the function setUp """
         pass
 
     def tearDown(self):
+        """Representation of the function tearDown"""
         try:
             os.remove('file.json')
         except Exception:
