@@ -32,11 +32,15 @@ class BaseModel:
                 del kwargs['__class__']
 
             if isinstance(kwargs.get('updated_at'), str):
-                kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
+                kwargs['updated_at'] = datetime.strptime(
+                        kwargs['updated_at'],
+                        '%Y-%m-%dT%H:%M:%S.%f'
+                        )
             if isinstance(kwargs.get('created_at'), str):
-                kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
-                                                     '%Y-%m-%dT%H:%M:%S.%f')
+                kwargs['created_at'] = datetime.strptime(
+                        kwargs['created_at'],
+                        '%Y-%m-%dT%H:%M:%S.%f'
+                        )
             for key, value in kwargs.items():
                 if not hasattr(self, key):
                     setattr(self, key, value)
