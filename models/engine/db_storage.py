@@ -1,6 +1,6 @@
 import os
 from sqlalchemy import create_engine
-from sqlalchemy import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 from models.city import City
 from models.state import State
@@ -11,6 +11,8 @@ class DBStorage:
     __session = None
 
     def __init__(self):
+        from models.city import City
+        from models.state import State
         self.__engine = create_engine(
                 'mysql+mysqldb://{}:{}@{}/{}'.
                 format(os.getenv('HBNB_MYSQL_USER'), os.getenv(
@@ -45,7 +47,7 @@ class DBStorage:
         Create all tables in db and in current session
         """
         Base.metadata.create_all(self.__engine)
-        Session = sessoionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(Session)
 
     def all(self, cls=None):
