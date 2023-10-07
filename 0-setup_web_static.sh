@@ -12,7 +12,8 @@ mkdir -p /data/web_static/releases/test /data/web_static/shared
 
 #create html
 echo "<html>
-      <head></head>
+      <head>
+      </head>
       <body>Holberton School</body>
       </html>
       " | tee /data/web_static/releases/test/index.html > /dev/null
