@@ -73,7 +73,5 @@ class DBStorage:
         return obj_dict
 
     def close(self):
-        """
-        close current connection
-        """
+        """call remove() method on the private session attribute"""
         self.__session.remove()
