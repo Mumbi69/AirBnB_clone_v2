@@ -13,8 +13,7 @@ class State(BaseModel, Base):
             'City', back_populates='state',
             cascade='all, delete-orphan')
 
-
-     @property
-     def cities_getter(self):
-         """Getter for the cities"""
-         return [city for city in self.cities]
+    @property
+    def cities_getter(self):
+        """Getter for the cities"""
+        return [city for city in self.cities]
